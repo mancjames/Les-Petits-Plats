@@ -1,8 +1,11 @@
-# 📦 webpack Boilerplate
+Les Petit Plats - Recipe Website
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+A fictional recipe website for an open classrooms project - using bootstrap 5 and creating a responsive recipe website using JSON data.
 
-Sensible webpack 5 boilerplate using Babel, PostCSS and Sass with a hot dev server and an optimized production build.
+The website should also be able to complete a user search function and finding specific recipes through different filter options.
+
+Website built using webpack 5 which includes Babel, PostCSS and Sass with a hot dev server and an optimised production build. 
+
 
 ## Installation
 
@@ -95,7 +98,8 @@ cd dist && http-server
 
 ## Author
 
-- [Tania Rascia](https://www.taniarascia.com)
+- Website created by James Hay.
+- Webpack boilerplate provided by [Tania Rascia](https://www.taniarascia.com)
 
 ## License
 

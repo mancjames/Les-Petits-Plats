@@ -21,11 +21,11 @@ module.exports = merge(common, {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            // options: {
-            //   importLoaders: 2,
-            //   sourceMap: true,
-            //   modules: true,
-            // },
+            options: {
+              importLoaders: 2,
+              sourceMap: false,
+              modules: true,
+            },
           },
           'postcss-loader',
           'sass-loader',
@@ -36,8 +36,8 @@ module.exports = merge(common, {
   plugins: [
     // Extracts CSS into separate files
     new MiniCssExtractPlugin({
-      filename: 'styles/[name].css',
-      // chunkFilename: '[id].css',
+      filename: 'styles/[name].[contenthash].css',
+      chunkFilename: '[id].css',
     }),
   ],
   optimization: {
