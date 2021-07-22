@@ -1,16 +1,25 @@
-import { createElement } from '../functions'
+import { createElement, singleContainer, singleRow } from '../helpers'
 
 import headerLogo from '../../../images/logo.svg'
 
 export const header = createElement({
   name: 'header',
+  attrs: [],
+  content: '',
+})
+
+const headerContainer = createElement(singleContainer)
+
+const headerRow = createElement(singleRow)
+
+const headerCol = createElement({
+  name: 'div',
   attrs: [
-    'container',
+    'col',
     'd-flex',
     'justify-content-center',
     'align-items-center',
     'flex-column',
-    'my-3',
   ],
   content: '',
 })
@@ -28,5 +37,7 @@ const headerImg = createElement({
 })
 headerImg.src = headerLogo
 
-header.appendChild(headerImg)
-header.appendChild(headerText)
+header.appendChild(headerContainer)
+headerContainer.appendChild(headerRow)
+headerRow.appendChild(headerCol)
+headerCol.append(headerImg, headerText)

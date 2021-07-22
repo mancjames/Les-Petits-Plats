@@ -13,3 +13,15 @@ export function createElement({ name, attrs, content }) {
 
   return el
 }
+
+export const singleContainer = {
+  name: 'div',
+  attrs: ['container'],
+  content: '',
+}
+
+export const singleRow = {
+  name: 'div',
+  attrs: ['row', 'my-4'],
+  content: '',
+}
