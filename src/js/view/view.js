@@ -9,6 +9,7 @@ import 'bootstrap'
 // javascript imports
 
 import { header } from './components/header'
+import { filter } from './components/filters'
 import { search } from './components/search'
 import { dropdown } from './components/dropdowns'
 
@@ -21,4 +22,4 @@ const main = createElement({
 
 export const view = document.body.append(header, main)
 
-main.append(search, dropdown)
+main.append(search, filter, dropdown)

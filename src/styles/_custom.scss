@@ -29,7 +29,7 @@ $dark: $gray-900;
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
-  'tertiarty': $tertiary,
+  'tertiary': $tertiary,
   'success': $success,
   'info': $info,
   'warning': $warning,
@@ -39,7 +39,7 @@ $theme-colors: (
 );
 
 $input-bg: $light;
-$input-placeholder-color: $dark;
+$input-placeholder-color: $white;
 $input-border-color: $light;
 
 $enable-rounded: false;
@@ -54,31 +54,3 @@ $btn-active-border-shade-amount: 0;
 $btn-active-border-tint-amount: 0;
 
 //custom classes
-
-.dropdown {
-  color: $white;
-  i {
-    color: $white;
-  }
-  input {
-    ::placeholder {
-      color: $white !important;
-    }
-    ::-webkit-input-placeholder {
-      /* Chrome/Opera/Safari */
-      color: $white !important;
-    }
-    ::-moz-placeholder {
-      /* Firefox 19+ */
-      color: $white !important;
-    }
-    :-ms-input-placeholder {
-      /* IE 10+ */
-      color: $white !important;
-    }
-    :-moz-placeholder {
-      /* Firefox 18- */
-      color: $white !important;
-    }
-  }
-}
