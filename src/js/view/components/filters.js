@@ -34,4 +34,4 @@ const filterButton = createElement({
 
 filter.appendChild(filterRow)
 filterRow.appendChild(filterCol)
-filterCol.appendChild(filterButton)
+filterCol.append(filterButton)

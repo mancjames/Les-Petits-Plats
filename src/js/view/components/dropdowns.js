@@ -23,12 +23,31 @@ const ingredientDropdown = createElement({
         aria-label="Search">
         <button type="button" 
         class="btn btn-primary rounded-end text-white" 
-        data-toggle="dropdown" 
+        data-bs-toggle="dropdown" 
+        data-bs-reference="parent"
         aria-haspopup="true" 
-        aria-expanded="false">
+        aria-expanded="false"
+        id="dropdownMenuButtonIngredient">
         <i class="fas fa-chevron-down"></i>
         <span class="sr-only">Toggle Dropdown</span>
       </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonIngredient">
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+        <li class="dropdown-item">Test</li>
+    </ul>
     `,
 })
 
