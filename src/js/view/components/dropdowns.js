@@ -31,7 +31,7 @@ const ingredientDropdown = createElement({
         <i class="fas fa-chevron-down"></i>
         <span class="sr-only">Toggle Dropdown</span>
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonIngredient">
+      <ul class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuButtonIngredient">
         <li class="dropdown-item">Test</li>
         <li class="dropdown-item">Test</li>
         <li class="dropdown-item">Test</li>
