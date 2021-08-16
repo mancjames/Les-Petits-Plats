@@ -16,6 +16,8 @@ function removeDuplicates(source) {
 }
 
 const ingredient = []
+const device = []
+const utensils = []
 
 for (let i = 0; i < recipes.length; i++) {
   const { ingredients } = recipes[i]
@@ -27,4 +29,23 @@ for (let i = 0; i < recipes.length; i++) {
   }
 }
 
+for (let i = 0; i < recipes.length; i++) {
+  const { appliance } = recipes[i]
+  const applianceWithFirstCapital =
+    appliance.charAt(0).toUpperCase() + appliance.slice(1)
+  device.push(applianceWithFirstCapital)
+}
+
+for (let i = 0; i < recipes.length; i++) {
+  const { ustensils } = recipes[i]
+  for (let j = 0; j < ustensils.length; j++) {
+    const utensil = ustensils[j].toLowerCase()
+    const utensilWithFirstCapital =
+      utensil.charAt(0).toUpperCase() + utensil.slice(1)
+    utensils.push(utensilWithFirstCapital)
+  }
+}
+
 export const ingredientWithNoDuplicates = removeDuplicates(ingredient)
+export const deviceWithNoDuplicates = removeDuplicates(device)
+export const utensilWithNoDuplicates = removeDuplicates(utensils)
