@@ -31,23 +31,24 @@ const ingredientDropdown = createElement({
         <i class="fas fa-chevron-down"></i>
         <span class="sr-only">Toggle Dropdown</span>
       </button>
-      <ul class="dropdown-menu bg-primary" aria-labelledby="dropdownMenuButtonIngredient">
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-        <li class="dropdown-item">Test</li>
-    </ul>
+    `,
+})
+
+const ingredientDropdownList = createElement({
+  name: 'ul',
+  attrs: ['dropdown-menu', 'bg-primary', 'column-count'],
+  content: ``,
+})
+ingredientDropdownList.setAttribute(
+  'aria-labelledby',
+  'dropdownMenuButtonIngredient'
+)
+
+const ingredientDropdownListItem = createElement({
+  name: 'li',
+  attrs: ['dropdown-item'],
+  content: `
+        Test
     `,
 })
 
@@ -107,3 +108,5 @@ const utensilDropdown = createElement({
 
 dropdown.appendChild(dropdownRow)
 dropdownRow.append(ingredientDropdown, deviceDropdown, utensilDropdown)
+ingredientDropdown.append(ingredientDropdownList)
+ingredientDropdownList.append(ingredientDropdownListItem)
