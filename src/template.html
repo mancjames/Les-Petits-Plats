@@ -12,5 +12,231 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
 
-  <body></body>
+  <body>
+    <header>
+      <div class="container">
+        <div class="row my-4">
+          <div
+            class="
+              col
+              d-flex
+              justify-content-center
+              align-items-center
+              flex-column
+            "
+          >
+            <img class="d-block" src="../src/images/logo.svg" />
+            <h2 class="display-6">Les petit plats</h2>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row my-4">
+          <div class="col-12">
+            <form class="d-flex btn-group">
+              <input
+                class="form-control rounded-start"
+                type="search"
+                placeholder="Search an ingredient, device, utensil or recipe"
+                aria-label="Search"
+              />
+              <button class="btn btn-light rounded-end" type="submit">
+                <i class="fas fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row my-4">
+          <div class="col">
+            <div
+              class="
+                rounded
+                col-1
+                text-white
+                align-middle
+                text-nowrap
+                btn-group
+              "
+            >
+              <span class="bg-secondary rounded-start px-2 py-2" id="filterText"
+                >Dark Chocolate</span
+              >
+              <button
+                type="button"
+                class="
+                  btn
+                  close
+                  text-white
+                  rounded-end
+                  bg-secondary
+                  float-right
+                "
+                aria-label="close"
+                id="filterButton"
+              >
+                <i aria-hidden="true" class="far fa-times-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row my-4">
+          <div class="col-sm-12 col-md-3 col-lg-2 mb-3 mb-lg-0">
+            <div class="btn-group rounded d-flex">
+              <input
+                class="
+                  form-control
+                  rounded-start
+                  bg-primary
+                  border-primary
+                  py-4
+                  px-2
+                  text-white
+                "
+                type="search"
+                placeholder="Ingredient"
+                aria-label="Search"
+              />
+              <button
+                type="button"
+                class="
+                  btn btn-primary
+                  rounded-end
+                  text-white
+                  dropdown-toggle-split
+                "
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                id="dropdownMenuButtonIngredient"
+                data-bs-reference="parent"
+              >
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+
+              <ul
+                class="bg-primary column-count dropdown-menu"
+                aria-labelledby="dropdownMenuButtonIngredient"
+              >
+                <li class="dropdown-item">te</li>
+                <li class="dropdown-item">testst</li>
+                <li class="dropdown-item">teststt</li>
+                <li class="dropdown-item">tt</li>
+                <li class="dropdown-item">tjhjhk</li>
+                <li class="dropdown-item">jhkjhkj</li>
+                <li class="dropdown-item">jjjh</li>
+                <li class="dropdown-item">khjkhkjh</li>
+                <li class="dropdown-item">kjhkjh</li>
+                <li class="dropdown-item">jhhjhj</li>
+                <li class="dropdown-item">hhhh</li>
+                <li class="dropdown-item">huhu</li>
+                <li class="dropdown-item">knkn</li>
+                <li class="dropdown-item">nkjnkjn</li>
+                <li class="dropdown-item">nknkjkjn</li>
+                <li class="dropdown-item">te</li>
+                <li class="dropdown-item">testst</li>
+                <li class="dropdown-item">teststt</li>
+                <li class="dropdown-item">tt</li>
+                <li class="dropdown-item">tjhjhk</li>
+                <li class="dropdown-item">jhkjhkj</li>
+                <li class="dropdown-item">jjjh</li>
+                <li class="dropdown-item">khjkhkjh</li>
+                <li class="dropdown-item">kjhkjh</li>
+                <li class="dropdown-item">jhhjhj</li>
+                <li class="dropdown-item">hhhh</li>
+                <li class="dropdown-item">huhu</li>
+                <li class="dropdown-item">knkn</li>
+                <li class="dropdown-item">nkjnkjn</li>
+                <li class="dropdown-item">nknkjkjn</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-2 mb-3 mb-lg-0">
+            <div class="btn-group rounded d-flex">
+              <input
+                class="
+                  form-control
+                  rounded-start
+                  bg-secondary
+                  border-secondary
+                  py-4
+                  px-2
+                  text-white
+                "
+                type="search"
+                placeholder="Device"
+                aria-label="Search"
+              />
+              <button
+                type="button"
+                class="
+                  btn btn-secondary
+                  rounded-end
+                  text-white
+                  dropdown-toggle-split
+                "
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                id="dropdownMenuButtonDevice"
+                data-bs-reference="parent"
+              >
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul
+                class="bg-primary column-count dropdown-menu"
+                aria-labelledby="dropdownMenuButtonDevice"
+              ></ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-2 mb-3 mb-lg-0">
+            <div class="btn-group rounded d-flex">
+              <input
+                class="
+                  form-control
+                  rounded-start
+                  bg-tertiary
+                  border-tertiary
+                  py-4
+                  px-2
+                  text-white
+                "
+                type="search"
+                placeholder="Utensil"
+                aria-label="Search"
+              />
+              <button
+                type="button"
+                class="
+                  btn btn-tertiary
+                  rounded-end
+                  text-white
+                  dropdown-toggle-split
+                "
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                id="dropdownMenuButtonUtensil"
+                data-bs-reference="parent"
+              >
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul
+                class="bg-primary column-count dropdown-menu"
+                aria-labelledby="dropdownMenuButtonUtensil"
+              ></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
