@@ -21,7 +21,7 @@ export const recipes = [
       },
       {
         ingredient: 'Sugar',
-        quantite: 30,
+        quantity: 30,
         unit: 'grams',
       },
       {
@@ -54,7 +54,7 @@ export const recipes = [
       },
       {
         ingredient: 'Carrot',
-        quantite: 1,
+        quantity: 1,
       },
       {
         ingredient: 'Lime',

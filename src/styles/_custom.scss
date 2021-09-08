@@ -36,6 +36,7 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'black': $black,
 );
 
 //Input variables
@@ -63,4 +64,8 @@ $enable-negative-margins: true;
 
 .column-count {
   column-count: 3;
+}
+
+.font-small {
+  font-size: 0.75rem !important;
 }

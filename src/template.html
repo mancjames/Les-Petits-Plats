@@ -37,7 +37,7 @@
           <div class="col-12">
             <form class="d-flex btn-group">
               <input
-                class="form-control rounded-start"
+                class="form-control rounded-start text-dark"
                 type="search"
                 placeholder="Search an ingredient, device, utensil or recipe"
                 aria-label="Search"
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="row my-4">
+        <div class="row my-4 d-none" id="filterRow">
           <div class="col">
             <div
               class="
@@ -62,9 +62,7 @@
                 btn-group
               "
             >
-              <span class="bg-secondary rounded-start px-2 py-2" id="filterText"
-                >Dark Chocolate</span
-              >
+              <span class="rounded-start px-2 py-2" id="filterText"></span>
               <button
                 type="button"
                 class="
@@ -86,7 +84,7 @@
       </div>
       <div class="container">
         <div class="row my-4">
-          <div class="col-sm-12 col-md-3 mb-3 mb-lg-0">
+          <div class="col-sm-12 col-md-2 mb-3 mb-lg-0">
             <div class="btn-group rounded d-flex">
               <input
                 class="
@@ -130,41 +128,10 @@
                   mt-n1
                 "
                 aria-labelledby="dropdownMenuButtonIngredient"
-              >
-                <li class="dropdown-item">te</li>
-                <li class="dropdown-item">testst</li>
-                <li class="dropdown-item">teststt</li>
-                <li class="dropdown-item">tt</li>
-                <li class="dropdown-item">tjhjhk</li>
-                <li class="dropdown-item">jhkjhkj</li>
-                <li class="dropdown-item">jjjh</li>
-                <li class="dropdown-item">khjkhkjh</li>
-                <li class="dropdown-item">kjhkjh</li>
-                <li class="dropdown-item">jhhjhj</li>
-                <li class="dropdown-item">hhhh</li>
-                <li class="dropdown-item">huhu</li>
-                <li class="dropdown-item">knkn</li>
-                <li class="dropdown-item">nkjnkjn</li>
-                <li class="dropdown-item">nknkjkjn</li>
-                <li class="dropdown-item">te</li>
-                <li class="dropdown-item">testst</li>
-                <li class="dropdown-item">teststt</li>
-                <li class="dropdown-item">tt</li>
-                <li class="dropdown-item">tjhjhk</li>
-                <li class="dropdown-item">jhkjhkj</li>
-                <li class="dropdown-item">jjjh</li>
-                <li class="dropdown-item">khjkhkjh</li>
-                <li class="dropdown-item">kjhkjh</li>
-                <li class="dropdown-item">jhhjhj</li>
-                <li class="dropdown-item">hhhh</li>
-                <li class="dropdown-item">huhu</li>
-                <li class="dropdown-item">knkn</li>
-                <li class="dropdown-item">nkjnkjn</li>
-                <li class="dropdown-item">nknkjkjn</li>
-              </ul>
+              ></ul>
             </div>
           </div>
-          <div class="col-sm-12 col-md-3 mb-3 mb-lg-0">
+          <div class="col-sm-12 col-md-2 mb-3 mb-lg-0">
             <div class="btn-group rounded d-flex">
               <input
                 class="
@@ -211,7 +178,7 @@
               ></ul>
             </div>
           </div>
-          <div class="col-sm-12 col-md-3 mb-3 mb-lg-0">
+          <div class="col-sm-12 col-md-2 mb-3 mb-lg-0">
             <div class="btn-group rounded d-flex">
               <input
                 class="
@@ -257,6 +224,46 @@
                 aria-labelledby="dropdownMenuButtonUtensil"
               ></ul>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 my-4">
+          <div class="col">
+            <article class="card bg-light h-100 text-black">
+              <svg class="card-img-top">
+                <rect height="100%" width="100%" style="fill: grey"></rect>
+              </svg>
+              <div class="d-flex px-3 py-2 fw-bold">
+                <h5 class="card-title me-auto my-auto">Recipe Title</h5>
+                <div class="d-flex flex-row align-items-center">
+                  <i class="far fa-clock"></i>
+                  <p class="m-1">60 mins</p>
+                </div>
+              </div>
+              <div
+                class="card-body d-flex flex-row flex-wrap font-small px-3 py-1"
+              >
+                <div class="card-text d-flex flex-column w-50">
+                  <ul class="list-unstyled">
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                    <li>test</li>
+                  </ul>
+                </div>
+                <div class="card-text d-flex flex-column w-50">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Expedita eos ullam placeat voluptates facilis aliquid illo
+                    ea obcaecati vitae officiis
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
