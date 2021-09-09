@@ -2,7 +2,7 @@
 
 // function for creating elements depending on type
 
-const createDom = (tag, ...childs) => {
+export const createDom = (tag, ...childs) => {
   const element = document.createElement(tag)
   childs.forEach(child => {
     // appends text if string
