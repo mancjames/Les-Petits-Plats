@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { view } from './js/view/view'
+import { init } from './js/controller'
 
 import {
   ingredientWithNoDuplicates,
@@ -7,5 +8,4 @@ import {
   utensilWithNoDuplicates,
 } from './js/modal/optionsFromData'
 
-// eslint-disable-next-line no-console
-console.log(utensilWithNoDuplicates)
+init()
