@@ -69,3 +69,9 @@ $enable-negative-margins: true;
 .font-small {
   font-size: 0.75rem !important;
 }
+
+.rectangle {
+  height: 12rem;
+  width: 100%;
+  background-color: $dark;
+}

@@ -1,27 +1,23 @@
 /* eslint-disable no-plusplus */
 
-// Creating elements with multiple classes
-export function createElement({ name, attrs, content }) {
-  const el = document.createElement(name)
+// function for creating elements depending on type
 
-  for (let i = 0; i < attrs.length; i++) {
-    const attr = attrs[i]
-    el.classList.add(attr)
-  }
-
-  el.innerHTML = content
-
-  return el
-}
-
-export const singleContainer = {
-  name: 'div',
-  attrs: ['container'],
-  content: '',
-}
-
-export const singleRow = {
-  name: 'div',
-  attrs: ['row', 'my-4'],
-  content: '',
+const createDom = (tag, ...childs) => {
+  const element = document.createElement(tag)
+  childs.forEach(child => {
+    // appends text if string
+    if (typeof child === 'string'){
+      const textNode = document.createTextNode(child)
+      element.append(textNode)
+      // appends if an HTML element such as <h2>
+    } else if (child instanceof HTMLElement){
+      element.append(child)
+      // appends objects of key, value such as 'class', 'col'
+    } else if (child instanceof Object){
+      Object.entries(child).forEach(([key, value]) => {
+        element.setAttribute(key, value)
+      })
+    }
+  })
+  return element
 }
