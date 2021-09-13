@@ -75,3 +75,19 @@ $enable-negative-margins: true;
   width: 100%;
   background-color: $dark;
 }
+
+.custom-title {
+  height: 4em;
+}
+
+.custom-card-height {
+  max-height: 25em;
+}
+
+.custom-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
