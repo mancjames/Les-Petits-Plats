@@ -50,5 +50,8 @@
   "bugs": {
     "url": "https://github.com/mancjames/Les-Petits-Plats/issues"
   },
-  "homepage": "https://github.com/mancjames/Les-Petits-Plats#readme"
+  "homepage": "https://github.com/mancjames/Les-Petits-Plats#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1"
+  }
 }

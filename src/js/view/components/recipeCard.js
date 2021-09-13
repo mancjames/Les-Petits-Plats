@@ -35,7 +35,7 @@ RecipeCard.prototype.recipeCard = function () {
           'div',
           { class: 'd-flex flex-row align-items-center' },
           createDom('i', { class: 'far fa-clock' }),
-          createDom('p', `${this.time} minutes`, { class: 'far fa-clock' })
+          createDom('p', `${this.time} min`)
         )
       ),
       createDom(
