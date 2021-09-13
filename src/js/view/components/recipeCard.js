@@ -44,17 +44,18 @@ RecipeCard.prototype.recipeCard = function () {
         createDom(
           'div',
           { class: 'card-text d-flex flex-column w-50' },
-          createDom('ul', {
-            class: 'list-unstyled',
+          createDom(
+            'ul',
+            { class: 'list-unstyled' },
             ...this.ingredients.map((ingredient) =>
               createDom(
                 'li',
                 createDom('strong', `${ingredient.ingredient}`),
-                ingredient.quanity ? `: ${ingredient.quanity} :` : '',
+                ingredient.quantity ? `: ${ingredient.quantity} ` : '',
                 ingredient.unit ? `${ingredient.unit}` : ''
               )
-            ),
-          })
+            )
+          )
         ),
         createDom(
           'div',
