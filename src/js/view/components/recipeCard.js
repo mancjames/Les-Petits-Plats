@@ -16,7 +16,7 @@ export function RecipeCard(data) {
 RecipeCard.prototype.recipeCard = function () {
   const card = createDom(
     'div',
-    { class: 'col mb-3' },
+    { class: 'col mb-4' },
     createDom(
       'article',
       {
@@ -26,12 +26,14 @@ RecipeCard.prototype.recipeCard = function () {
       createDom(
         'div',
         { class: 'card-img-top' },
-        createDom('div', { class: 'rectangle rounded-top' })
+        createDom('div', { class: 'custom-rectangle rounded-top' })
       ),
       createDom(
         'div',
-        { class: 'd-flex px-3 py-2 fw-bold custom-title' },
-        createDom('h5', `${this.name}`, {
+        {
+          class: 'd-flex px-3 py-2 fw-bold custom-title custom-responsive-text',
+        },
+        createDom('h6', `${this.name}`, {
           class: 'card-title me-auto my-auto col-8',
         }),
         createDom(
@@ -46,14 +48,15 @@ RecipeCard.prototype.recipeCard = function () {
       createDom(
         'div',
         {
-          class: 'card-body d-flex flex-row flex-wrap font-small px-3 py-1',
+          class:
+            'card-body d-flex flex-row flex-wrap custom-font-small px-3 py-1',
         },
         createDom(
           'div',
           { class: 'card-text d-flex flex-column w-50' },
           createDom(
             'ul',
-            { class: 'list-unstyled' },
+            { class: 'list-unstyled custom-width lh-sm' },
             ...this.ingredients.map((ingredient) =>
               createDom(
                 'li',

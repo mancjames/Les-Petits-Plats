@@ -62,15 +62,15 @@ $enable-negative-margins: true;
 
 //custom classes
 
-.column-count {
+.custom-column-count {
   column-count: 3;
 }
 
-.font-small {
+.custom-font-small {
   font-size: 0.75rem !important;
 }
 
-.rectangle {
+.custom-rectangle {
   height: 12rem;
   width: 100%;
   background-color: $dark;
@@ -78,10 +78,17 @@ $enable-negative-margins: true;
 
 .custom-title {
   height: 4em;
+  margin-bottom: 0.75rem;
+}
+
+.custom-responsive-text {
+  @media only screen and (max-width: 1024px) {
+    font-size: 0.85rem;
+  }
 }
 
 .custom-card-height {
-  max-height: 25em;
+  max-height: 30em;
 }
 
 .custom-truncate {
@@ -90,4 +97,8 @@ $enable-negative-margins: true;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.custom-width {
+  width: 90%;
 }
