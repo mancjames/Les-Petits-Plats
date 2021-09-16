@@ -1,6 +1,6 @@
 // View imports
 import { RecipeCard } from './view/components/recipeCard'
-import { DropdownOptions } from './view/components/dropdown'
+import { DropdownOptions, dropdownListener } from './view/components/dropdown'
 // Modal imports
 import { recipes } from './modal/recipes'
 // eslint-disable-next-line max-len
@@ -14,6 +14,7 @@ const recipesSection = document.getElementById('recipesSection')
 const ingredientDropdown = document.getElementById('ingredientDropdown')
 const utensilDropdown = document.getElementById('utensilDropdown')
 const deviceDropdown = document.getElementById('deviceDropdown')
+const ingredientDropListener = document.getElementById('ingredientDropListener')
 
 const createRecipesCard = (recipesCard) => {
   recipesCard.forEach((recipe) => {
@@ -32,4 +33,5 @@ export const init = () => {
   createDropdown(ingredientWithNoDuplicates, ingredientDropdown)
   createDropdown(utensilWithNoDuplicates, utensilDropdown)
   createDropdown(deviceWithNoDuplicates, deviceDropdown)
+  dropdownListener(ingredientDropListener)
 }
