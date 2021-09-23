@@ -15,13 +15,17 @@ DropdownOptions.prototype.dropdownListItems = function () {
 
 export function dropdownListener(selector) {
   selector.addEventListener(
-    'focus',
-    (event) => {
-      if (selector.parentElement.classList.contains('col-md-2')) {
-        selector.parentElement.classList.replace('col-md-2', 'col-md-6')
-      } else {
-        selector.parentElement.classList.replace('col-md-6', 'col-md-2')
-      }
+    'show.bs.dropdown',
+    () => {
+      selector.parentElement.classList.replace('col-md-2', 'col-md-6')
+      selector.parentElement.classList.add('custom-animation')
+    },
+    true
+  )
+  selector.addEventListener(
+    'hide.bs.dropdown',
+    () => {
+      selector.parentElement.classList.replace('col-md-6', 'col-md-2')
     },
     true
   )

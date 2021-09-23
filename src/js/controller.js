@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 // View imports
 import { RecipeCard } from './view/components/recipeCard'
 import { DropdownOptions, dropdownListener } from './view/components/dropdown'
@@ -14,7 +15,8 @@ const recipesSection = document.getElementById('recipesSection')
 const ingredientDropdown = document.getElementById('ingredientDropdown')
 const utensilDropdown = document.getElementById('utensilDropdown')
 const deviceDropdown = document.getElementById('deviceDropdown')
-const ingredientDropListener = document.getElementById('ingredientDropListener')
+// Class selectors
+const dropdownSelector = document.getElementsByClassName('dropdownListener')
 
 const createRecipesCard = (recipesCard) => {
   recipesCard.forEach((recipe) => {
@@ -33,5 +35,7 @@ export const init = () => {
   createDropdown(ingredientWithNoDuplicates, ingredientDropdown)
   createDropdown(utensilWithNoDuplicates, utensilDropdown)
   createDropdown(deviceWithNoDuplicates, deviceDropdown)
-  dropdownListener(ingredientDropListener)
+  for (let i = 0; i < dropdownSelector.length; i++) {
+    dropdownListener(dropdownSelector[i])
+  }
 }
