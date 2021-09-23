@@ -1,8 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
-import { view } from './js/view/view'
 import { init } from './js/controller'
-import { ingredientWithNoDuplicates } from './js/modal/optionsFromData'
+
+// Import of styles
+import '@/styles/index.scss'
+
+// Import of bootstrap
+import 'bootstrap'
 
 // import {
 //   ingredientWithNoDuplicates,
@@ -11,5 +15,3 @@ import { ingredientWithNoDuplicates } from './js/modal/optionsFromData'
 // } from './js/modal/optionsFromData'
 
 init()
-
-console.log(ingredientWithNoDuplicates)

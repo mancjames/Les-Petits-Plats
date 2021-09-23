@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
@@ -18,7 +19,9 @@ export function dropdownListener(selector) {
     'show.bs.dropdown',
     () => {
       selector.parentElement.classList.replace('col-md-2', 'col-md-6')
-      selector.parentElement.classList.add('custom-animation')
+      selector
+        .getElementsByTagName('i')[0]
+        .classList.replace('fa-chevron-down', 'fa-chevron-up')
     },
     true
   )
@@ -26,7 +29,28 @@ export function dropdownListener(selector) {
     'hide.bs.dropdown',
     () => {
       selector.parentElement.classList.replace('col-md-6', 'col-md-2')
+      selector
+        .getElementsByTagName('i')[0]
+        .classList.replace('fa-chevron-up', 'fa-chevron-down')
     },
     true
   )
+}
+
+export function dropdownSearch(selector, data) {
+  selector.addEventListener('keyup', (e) => {
+    const input = selector.getElementsByTagName('input')[0]
+    const ul = selector.getElementsByTagName('ul')[0]
+    if (input.value.length > 3) {
+      const query = input.value.toLowerCase()
+      console.log(query)
+      const results = data.filter((selection) =>
+        selection.toLowerCase().includes(query)
+      )
+      console.log(results)
+      results.forEach((result) =>
+        ul.append(createDom('li', `${result}`, { class: 'text-white' }))
+      )
+    }
+  })
 }

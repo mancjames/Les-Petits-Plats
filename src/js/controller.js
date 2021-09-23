@@ -1,7 +1,12 @@
 /* eslint-disable no-plusplus */
 // View imports
 import { RecipeCard } from './view/components/recipeCard'
-import { DropdownOptions, dropdownListener } from './view/components/dropdown'
+// eslint-disable-next-line max-len
+import {
+  DropdownOptions,
+  dropdownListener,
+  dropdownSearch,
+} from './view/components/dropdown'
 // Modal imports
 import { recipes } from './modal/recipes'
 // eslint-disable-next-line max-len
@@ -37,5 +42,6 @@ export const init = () => {
   createDropdown(deviceWithNoDuplicates, deviceDropdown)
   for (let i = 0; i < dropdownSelector.length; i++) {
     dropdownListener(dropdownSelector[i])
+    dropdownSearch(dropdownSelector[i], ingredientWithNoDuplicates)
   }
 }
