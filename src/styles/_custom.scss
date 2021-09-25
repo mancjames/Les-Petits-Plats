@@ -106,3 +106,7 @@ $enable-negative-margins: true;
 .custom-animation {
   transition: 0.5s;
 }
+
+.custom-placeholder-grey::placeholder {
+  color: grey !important;
+}

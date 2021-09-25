@@ -41,6 +41,7 @@ export function dropdownSearch(selector, data) {
   selector.addEventListener('keyup', (e) => {
     const input = selector.getElementsByTagName('input')[0]
     const ul = selector.getElementsByTagName('ul')[0]
+    ul.innerHTML = ''
     if (input.value.length > 3) {
       const query = input.value.toLowerCase()
       console.log(query)
