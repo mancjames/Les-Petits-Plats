@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-plusplus */
 // View imports
 import { RecipeCard } from './view/components/recipeCard'
@@ -35,13 +36,21 @@ const createDropdown = (dropdownData, idSelector) => {
   })
 }
 
+const listWithNoDuplicates = [
+  ingredientWithNoDuplicates,
+  deviceWithNoDuplicates,
+  utensilWithNoDuplicates,
+]
 export const init = () => {
   createRecipesCard(recipes)
   createDropdown(ingredientWithNoDuplicates, ingredientDropdown)
   createDropdown(utensilWithNoDuplicates, utensilDropdown)
   createDropdown(deviceWithNoDuplicates, deviceDropdown)
   for (let i = 0; i < dropdownSelector.length; i++) {
+    // createDropdown(listWithNoDuplicates[i], dropdownSelector[i])
     dropdownListener(dropdownSelector[i])
-    dropdownSearch(dropdownSelector[i], ingredientWithNoDuplicates)
+    dropdownSelector[i].addEventListener('keyup', () => {
+      dropdownSearch(dropdownSelector[i], listWithNoDuplicates[i])
+    })
   }
 }

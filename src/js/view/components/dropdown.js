@@ -38,20 +38,20 @@ export function dropdownListener(selector) {
 }
 
 export function dropdownSearch(selector, data) {
-  selector.addEventListener('keyup', (e) => {
-    const input = selector.getElementsByTagName('input')[0]
-    const ul = selector.getElementsByTagName('ul')[0]
-    ul.innerHTML = ''
-    if (input.value.length > 3) {
-      const query = input.value.toLowerCase()
-      console.log(query)
-      const results = data.filter((selection) =>
-        selection.toLowerCase().includes(query)
-      )
-      console.log(results)
-      results.forEach((result) =>
-        ul.append(createDom('li', `${result}`, { class: 'text-white' }))
-      )
-    }
-  })
+  const input = selector.getElementsByTagName('input')[0]
+  const ul = selector.getElementsByTagName('ul')[0]
+  ul.innerHTML = ''
+  if (input.value.length > 1) {
+    const query = input.value.toLowerCase()
+    const results = data.filter((selection) =>
+      selection.toLowerCase().includes(query)
+    )
+    results.forEach((result) =>
+      ul.append(new DropdownOptions(result).dropdownListItems())
+    )
+  } else {
+    data.forEach((listItem) => {
+      ul.append(new DropdownOptions(listItem).dropdownListItems())
+    })
+  }
 }
