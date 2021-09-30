@@ -79,3 +79,9 @@ RecipeCard.prototype.recipeCard = function () {
   )
   return card
 }
+
+RecipeCard.prototype.createRecipesCard = function (recipesCard, idSelector) {
+  recipesCard.forEach((recipe) => {
+    idSelector.append(new RecipeCard(recipe).recipeCard())
+  })
+}

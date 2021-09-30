@@ -46,6 +46,12 @@ for (let i = 0; i < recipes.length; i++) {
   }
 }
 
-export const ingredientWithNoDuplicates = removeDuplicates(ingredient)
-export const deviceWithNoDuplicates = removeDuplicates(device)
-export const utensilWithNoDuplicates = removeDuplicates(utensils)
+const ingredientWithNoDuplicates = removeDuplicates(ingredient)
+const deviceWithNoDuplicates = removeDuplicates(device)
+const utensilWithNoDuplicates = removeDuplicates(utensils)
+
+export const listWithNoDuplicates = [
+  ingredientWithNoDuplicates,
+  deviceWithNoDuplicates,
+  utensilWithNoDuplicates,
+]

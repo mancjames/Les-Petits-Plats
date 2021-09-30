@@ -5,53 +5,83 @@
 /* eslint-disable no-unused-vars */
 import { createDom } from '../helpers'
 
-export function DropdownOptions(data) {
+export function Dropdown(data) {
   this.data = data
 }
 
-DropdownOptions.prototype.dropdownListItems = function () {
+Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', `${this.data}`, { class: 'text-white' })
   return listItem
 }
 
-export function dropdownListener(selector) {
+Dropdown.prototype.createDropdown = function (idSelector, dropdownData) {
+  dropdownData.forEach((listItem) => {
+    idSelector.append(new Dropdown(listItem).dropdownListItems())
+  })
+}
+
+Dropdown.prototype.dropdownSearch = function (selector, data) {
+  selector.addEventListener('keydown', () => {
+    const input = selector.getElementsByTagName('input')[0]
+    const ul = selector.getElementsByTagName('ul')[0]
+    ul.innerHTML = ''
+    if (input.value.length > 1) {
+      const query = input.value.toLowerCase()
+      const results = data.filter((selection) =>
+        selection.toLowerCase().includes(query)
+      )
+      results.forEach((result) =>
+        ul.append(new Dropdown(result).dropdownListItems())
+      )
+    } else {
+      data.forEach((listItem) => {
+        ul.append(new Dropdown(listItem).dropdownListItems())
+      })
+    }
+  })
+}
+
+Dropdown.prototype.expandDropdown = function (selector) {
+  selector.parentElement.classList.replace('col-md-2', 'col-md-6')
+  selector
+    .getElementsByTagName('i')[0]
+    .classList.replace('fa-chevron-down', 'fa-chevron-up')
+}
+
+Dropdown.prototype.minimizeDropdown = function (selector) {
+  selector.parentElement.classList.replace('col-md-6', 'col-md-2')
+  selector
+    .getElementsByTagName('i')[0]
+    .classList.replace('fa-chevron-up', 'fa-chevron-down')
+}
+
+Dropdown.prototype.dropdownListener = function (selector) {
   selector.addEventListener(
     'show.bs.dropdown',
     () => {
-      selector.parentElement.classList.replace('col-md-2', 'col-md-6')
-      selector
-        .getElementsByTagName('i')[0]
-        .classList.replace('fa-chevron-down', 'fa-chevron-up')
+      Dropdown.prototype.expandDropdown(selector)
     },
     true
   )
   selector.addEventListener(
     'hide.bs.dropdown',
     () => {
-      selector.parentElement.classList.replace('col-md-6', 'col-md-2')
-      selector
-        .getElementsByTagName('i')[0]
-        .classList.replace('fa-chevron-up', 'fa-chevron-down')
+      Dropdown.prototype.minimizeDropdown(selector)
     },
     true
   )
-}
-
-export function dropdownSearch(selector, data) {
-  const input = selector.getElementsByTagName('input')[0]
-  const ul = selector.getElementsByTagName('ul')[0]
-  ul.innerHTML = ''
-  if (input.value.length > 1) {
-    const query = input.value.toLowerCase()
-    const results = data.filter((selection) =>
-      selection.toLowerCase().includes(query)
-    )
-    results.forEach((result) =>
-      ul.append(new DropdownOptions(result).dropdownListItems())
-    )
-  } else {
-    data.forEach((listItem) => {
-      ul.append(new DropdownOptions(listItem).dropdownListItems())
-    })
-  }
+  selector.addEventListener(
+    'keydown',
+    () => {
+      Dropdown.prototype.expandDropdown(selector)
+    },
+    true
+  )
+  selector.addEventListener(
+    'focusout',
+    () => {
+      Dropdown.prototype.minimizeDropdown(selector)
+    },
+    true
+  )
 }
