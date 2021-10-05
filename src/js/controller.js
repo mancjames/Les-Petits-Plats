@@ -11,25 +11,27 @@ import { recipes } from './modal/recipes'
 import { listWithNoDuplicates } from './modal/optionsFromData'
 // ID selectors
 const recipesSection = document.getElementById('recipesSection')
-const ingredientDropdown = document.getElementById('ingredientDropdown')
-const utensilDropdown = document.getElementById('utensilDropdown')
-const deviceDropdown = document.getElementById('deviceDropdown')
-const dropdownIdSelectors = [
-  ingredientDropdown,
-  deviceDropdown,
-  utensilDropdown,
-]
-// Class selectors
-const dropdownSelector = document.getElementsByClassName('dropdownListener')
+const dropdownSection = document.getElementById('dropdownButtonSection')
 
-const dropdown = new Dropdown()
+// Class selectors
+const dropdownOption = ['ingredient', 'device', 'utensil']
+const dropdownColor = ['primary', 'secondary', 'tertiary']
+
 const recipeCard = new RecipeCard(recipes)
 
 export const init = () => {
   recipeCard.createRecipesCard(recipes, recipesSection)
-  for (let i = 0; i < dropdownSelector.length; i++) {
-    dropdown.dropdownListener(dropdownSelector[i])
-    dropdown.createDropdown(dropdownIdSelectors[i], listWithNoDuplicates[i])
-    dropdown.dropdownSearch(dropdownSelector[i], listWithNoDuplicates[i])
+  for (let i = 0; i < dropdownOption.length; i++) {
+    const dropdown = new Dropdown(
+      listWithNoDuplicates[i],
+      dropdownOption[i],
+      dropdownColor[i]
+    )
+    dropdownSection.append(dropdown.createDropdownElement())
+    const dropdownDiv = document.getElementsByClassName('dropdownDiv')
+    for (let j = 0; j < dropdownDiv.length; j++) {
+      dropdown.dropdownListener(dropdownDiv[i])
+      dropdown.dropdownSearch(dropdownDiv[i])
+    }
   }
 }
