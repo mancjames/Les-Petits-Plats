@@ -13,7 +13,10 @@ export function Dropdown(data, type, color) {
 }
 
 Dropdown.prototype.dropdownListItems = function () {
-  const listItem = createDom('li', `${this.data}`, { class: 'text-white' })
+  const listItem = createDom('li', `${this.data}`, {
+    class: 'text-white list-item',
+  })
+  this.dropdownClickItem()
   return listItem
 }
 
@@ -62,11 +65,12 @@ Dropdown.prototype.createDropdownElement = function () {
           }`,
         },
         ...this.data.map((listItem) =>
-          createDom('li', `${listItem}`, { class: 'text-white' })
+          new Dropdown(listItem).dropdownListItems()
         )
       )
     )
   )
+  this.dropdownListener(element)
   return element
 }
 
@@ -91,15 +95,24 @@ Dropdown.prototype.dropdownSearch = function (selector) {
   })
 }
 
+Dropdown.prototype.dropdownClickItem = function () {
+  const liItem = document.querySelectorAll('.list-item')
+  liItem.forEach((item) => {
+    item.addEventListener('click', () => {
+      console.log('test')
+    })
+  })
+}
+
 Dropdown.prototype.expandDropdown = function (selector) {
-  selector.parentElement.classList.replace('col-md-2', 'col-md-6')
+  selector.classList.replace('col-md-2', 'col-md-6')
   selector
     .getElementsByTagName('i')[0]
     .classList.replace('fa-chevron-down', 'fa-chevron-up')
 }
 
 Dropdown.prototype.minimizeDropdown = function (selector) {
-  selector.parentElement.classList.replace('col-md-6', 'col-md-2')
+  selector.classList.replace('col-md-6', 'col-md-2')
   selector
     .getElementsByTagName('i')[0]
     .classList.replace('fa-chevron-up', 'fa-chevron-down')

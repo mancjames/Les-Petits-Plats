@@ -30,7 +30,6 @@ export const init = () => {
     dropdownSection.append(dropdown.createDropdownElement())
     const dropdownDiv = document.getElementsByClassName('dropdownDiv')
     for (let j = 0; j < dropdownDiv.length; j++) {
-      dropdown.dropdownListener(dropdownDiv[i])
       dropdown.dropdownSearch(dropdownDiv[i])
     }
   }
