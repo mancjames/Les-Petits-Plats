@@ -16,7 +16,7 @@ Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', `${this.data}`, {
     class: 'text-white list-item',
   })
-  this.dropdownClickItem()
+  this.dropdownClickItem(listItem)
   return listItem
 }
 
@@ -71,6 +71,7 @@ Dropdown.prototype.createDropdownElement = function () {
     )
   )
   this.dropdownListener(element)
+  // this.dropdownSearch(element)
   return element
 }
 
@@ -95,12 +96,30 @@ Dropdown.prototype.dropdownSearch = function (selector) {
   })
 }
 
-Dropdown.prototype.dropdownClickItem = function () {
-  const liItem = document.querySelectorAll('.list-item')
-  liItem.forEach((item) => {
-    item.addEventListener('click', () => {
-      console.log('test')
-    })
+Dropdown.prototype.dropdownClickItem = function (item) {
+  item.addEventListener('click', () => {
+    const filterElement = createDom(
+      'div',
+      {
+        class: 'rounded col-1 text-white align-middle text-nowrap btn-group',
+      },
+      createDom('span', `${item.textContent}`, {
+        class: 'rounded-start px-2 py-2',
+      }),
+      createDom('button', {
+        type: 'button',
+        class: 'btn close text-white rounded-end bg-secondary float-right',
+        'aria-label': 'close',
+      }),
+      createDom('i', {
+        'aria-hidden': 'true',
+        class: 'far fa-times-circle',
+      })
+    )
+    const test = document.getElementById('filterRow')
+    test.append(filterElement)
+    console.log(filterElement)
+    // return filterElement
   })
 }
 
@@ -133,18 +152,18 @@ Dropdown.prototype.dropdownListener = function (selector) {
     },
     true
   )
-  selector.addEventListener(
-    'focusin',
-    () => {
-      this.expandDropdown(selector)
-    },
-    true
-  )
-  selector.addEventListener(
-    'focusout',
-    () => {
-      this.minimizeDropdown(selector)
-    },
-    true
-  )
+  // selector.addEventListener(
+  //   'focusin',
+  //   () => {
+  //     this.expandDropdown(selector)
+  //   },
+  //   true
+  // )
+  // selector.addEventListener(
+  //   'focusout',
+  //   () => {
+  //     this.minimizeDropdown(selector)
+  //   },
+  //   true
+  // )
 }
