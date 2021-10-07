@@ -18,73 +18,55 @@ Dropdown.prototype.dropdownListItems = function () {
 }
 
 Dropdown.prototype.createDropdownElement = function () {
-  const element = createDom('div', {
-    class: 'col-sm-12 col-md-2 mb-3 mb-lg-0 custom-animation',
-  })
-  element.innerHTML = `
-      <div class="btn-group rounded d-flex dropdownDiv">
-        <input
-          class="
-            form-control
-            rounded-start
-            bg-${this.color}
-            border-${this.color}
-            py-4
-            px-2
-            text-white
-          "
-          type="search"
-          placeholder="${
+  const element = createDom(
+    'div',
+    { class: 'col-sm-12 col-md-2 mb-3 mb-lg-0 custom-animation' },
+    createDom(
+      'div',
+      { class: 'btn-group rounded d-flex dropdownDiv' },
+      createDom('input', {
+        class: `form-control rounded-start bg-${this.color} border=${this.color} py-4 px-2 text-white`,
+        type: 'search',
+        placeholder: `${
+          this.type.charAt(0).toUpperCase() + this.type.slice(1)
+        }`,
+        'aria-label': 'search',
+        'data-bs-toggle': 'dropdown',
+      }),
+      createDom(
+        'button',
+        {
+          class: `btn btn-${this.color} rounded-end text-white dropdown-toggle-split`,
+          'data-bs-toggle': 'dropdown',
+          'data-bs-reference': 'parent',
+          'aria-haspopup': 'true',
+          'aria-expanded': 'false',
+          id: `dropdownMenuButton${
             this.type.charAt(0).toUpperCase() + this.type.slice(1)
-          }"
-          aria-label="Search"
-          data-bs-toggle="dropdown"
-        />
-        <button
-          type="button"
-          class="
-            btn btn-${this.color}
-            rounded-end
-            text-white
-            dropdown-toggle-split
-          "
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          id="dropdownMenuButton${
+          }`,
+        },
+        createDom('i', {
+          class: 'fas fa-chevron-down',
+          'aria-hidden': 'true',
+        }),
+        createDom('span', 'Toggle Dropdown', {
+          class: 'sr-only',
+        })
+      ),
+      createDom(
+        'ul',
+        {
+          class: `bg-${this.color} custom-column-count dropdown-menu border-0 rounded-bottom col-12 mt-n1 p-3`,
+          'aria-labelledby': `dropdownMenuButton${
             this.type.charAt(0).toUpperCase() + this.type.slice(1)
-          }"
-          data-bs-reference="parent"
-        >
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul
-          class="
-            bg-${this.color}
-            custom-column-count
-            dropdown-menu
-            border-0
-            rounded-bottom
-            col-12
-            mt-n1
-            p-3
-          "
-          aria-labelledby="dropdownMenuButton${
-            this.type.charAt(0).toUpperCase() + this.type.slice(1)
-          }"
-        >
-        ${this.data
-          .map(
-            (listItem) => `
-                  <li class="text-white">
-                          ${listItem}
-                  </li>
-                `
-          )
-          .join('')}
-        </ul>
-      </div>`
+          }`,
+        },
+        ...this.data.map((listItem) =>
+          createDom('li', `${listItem}`, { class: 'text-white' })
+        )
+      )
+    )
+  )
   return element
 }
 
