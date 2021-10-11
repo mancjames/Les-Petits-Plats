@@ -5,6 +5,7 @@
 /* eslint-disable func-names */
 /* eslint-disable no-unused-vars */
 import { createDom } from '../helpers'
+import { Filter } from './filters'
 
 export function Dropdown(data, type, color) {
   this.data = data
@@ -70,8 +71,6 @@ Dropdown.prototype.createDropdownElement = function () {
       )
     )
   )
-  this.dropdownListener(element)
-  // this.dropdownSearch(element)
   return element
 }
 
@@ -98,28 +97,9 @@ Dropdown.prototype.dropdownSearch = function (selector) {
 
 Dropdown.prototype.dropdownClickItem = function (item) {
   item.addEventListener('click', () => {
-    const filterElement = createDom(
-      'div',
-      {
-        class: 'rounded col-1 text-white align-middle text-nowrap btn-group',
-      },
-      createDom('span', `${item.textContent}`, {
-        class: 'rounded-start px-2 py-2',
-      }),
-      createDom('button', {
-        type: 'button',
-        class: 'btn close text-white rounded-end bg-secondary float-right',
-        'aria-label': 'close',
-      }),
-      createDom('i', {
-        'aria-hidden': 'true',
-        class: 'far fa-times-circle',
-      })
-    )
-    const test = document.getElementById('filterRow')
-    test.append(filterElement)
-    console.log(filterElement)
-    // return filterElement
+    const filter = new Filter(item.textContent)
+    const test = filter.createFilterElement()
+    console.log(test)
   })
 }
 
