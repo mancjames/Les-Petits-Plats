@@ -11,7 +11,6 @@ import { listWithNoDuplicates } from './modal/optionsFromData'
 // ID selectors
 const recipesSection = document.getElementById('recipesSection')
 const dropdownSection = document.getElementById('dropdownButtonSection')
-const filterRow = document.getElementById('filterRow')
 
 // Class selectors
 const dropdownOption = ['ingredient', 'device', 'utensil']
@@ -32,5 +31,4 @@ export const init = () => {
     dropdown.dropdownListener(dropdownElement)
     dropdownSection.append(dropdownElement)
   }
-  filterRow.append()
 }
