@@ -17,7 +17,7 @@ Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', `${this.data}`, {
     class: 'text-white list-item',
   })
-  this.dropdownClickItem(listItem)
+  this.dropdownClickItem(listItem, this.color)
   return listItem
 }
 
@@ -29,7 +29,7 @@ Dropdown.prototype.createDropdownElement = function () {
       'div',
       { class: 'btn-group rounded d-flex dropdownDiv' },
       createDom('input', {
-        class: `form-control rounded-start bg-${this.color} border=${this.color} py-4 px-2 text-white`,
+        class: `form-control rounded-start bg-${this.color} border-${this.color} py-4 px-2 text-white`,
         type: 'search',
         placeholder: `${
           this.type.charAt(0).toUpperCase() + this.type.slice(1)
@@ -95,11 +95,10 @@ Dropdown.prototype.dropdownSearch = function (selector) {
   })
 }
 
-Dropdown.prototype.dropdownClickItem = function (item) {
+Dropdown.prototype.dropdownClickItem = function (item, color) {
   item.addEventListener('click', () => {
     const filter = new Filter(item.textContent)
-    const test = filter.createFilterElement()
-    console.log(test)
+    const filterElement = filter.createFilterElement()
   })
 }
 

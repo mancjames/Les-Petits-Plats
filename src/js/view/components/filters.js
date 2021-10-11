@@ -1,6 +1,9 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable func-names */
 import { createDom } from '../helpers'
+
+const filterRow = document.getElementById('filterRow')
 
 export function Filter(item) {
   this.item = item
@@ -18,13 +21,13 @@ Filter.prototype.createFilterElement = function () {
         class: 'rounded text-white align-middle text-nowrap btn-group',
       },
       createDom('span', `${this.item}`, {
-        class: 'rounded-start px-2 py-2 bg-secondary',
+        class: `rounded-start px-2 py-2 bg-primary`,
       }),
       createDom(
         'button',
         {
           type: 'button',
-          class: 'btn close text-white rounded-end bg-secondary float-right',
+          class: `btn close text-white rounded-end bg-primary float-right`,
           'aria-label': 'close',
         },
         createDom('i', {
@@ -34,11 +37,22 @@ Filter.prototype.createFilterElement = function () {
       )
     )
   )
+  filterRow.classList.remove('d-none')
   this.appendFilterElement(filterElement)
+  this.closeFilterElement(filterElement)
   return filterElement
 }
 
 Filter.prototype.appendFilterElement = function (element) {
-  const filterRow = document.getElementById('filterRow')
   filterRow.append(element)
+}
+
+Filter.prototype.closeFilterElement = function (selector) {
+  const close = selector.getElementsByTagName('button')[0]
+  close.addEventListener('click', () => {
+    close.parentElement.parentElement.remove()
+    if (!filterRow.hasChildNodes()) {
+      filterRow.classList.add('d-none')
+    }
+  })
 }
