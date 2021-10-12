@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable func-names */
 import { createDom } from '../helpers'
+import { RecipeCard } from './recipeCard'
 
 const filterRow = document.getElementById('filterRow')
 
@@ -55,4 +56,30 @@ Filter.prototype.closeFilterElement = function (selector) {
       filterRow.classList.add('d-none')
     }
   })
+}
+
+Filter.prototype.searchByFilter = function (data) {
+  const recipesSection = document.getElementById('recipesSection')
+  recipesSection.innerHTML = ''
+  if (filterRow.hasChildNodes()) {
+    const query = this.item.toLowerCase()
+    const results = data.filter(
+      (recipe) =>
+        recipe.name.toLowerCase().includes(query) ||
+        recipe.ustensils.some((ustensil) =>
+          ustensil.toLowerCase().includes(query)
+        ) ||
+        recipe.ingredients.some((ingredient) =>
+          ingredient.ingredient.toLowerCase().includes(query)
+        )
+    )
+    console.log(results)
+    results.forEach((result) =>
+      recipesSection.append(new RecipeCard(result).recipeCard())
+    )
+  } else {
+    data.forEach((recipe) => {
+      recipesSection.append(new RecipeCard(recipe).recipeCard())
+    })
+  }
 }

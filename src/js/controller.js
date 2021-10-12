@@ -8,6 +8,7 @@ import { Dropdown } from './view/components/dropdown'
 import { recipes } from './modal/recipes'
 // eslint-disable-next-line max-len
 import { listWithNoDuplicates } from './modal/optionsFromData'
+import { Filter } from './view/components/filters'
 // ID selectors
 const recipesSection = document.getElementById('recipesSection')
 const dropdownSection = document.getElementById('dropdownButtonSection')
@@ -30,5 +31,15 @@ export const init = () => {
     dropdown.dropdownSearch(dropdownElement)
     dropdown.dropdownListener(dropdownElement)
     dropdownSection.append(dropdownElement)
+  }
+  const listItem = document.getElementsByClassName('list-item')
+  const listItemResult = []
+  for (let j = 0; j < listItem.length; j++) {
+    listItem[j].addEventListener('click', () => {
+      const filterElement = new Filter(listItem[j].textContent)
+      filterElement.createFilterElement()
+      filterElement.searchByFilter(recipes)
+      listItemResult.push(listItem[j].textContent)
+    })
   }
 }

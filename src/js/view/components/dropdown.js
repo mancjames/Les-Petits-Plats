@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable indent */
 /* eslint-disable max-len */
 /* eslint-disable no-undef */
@@ -17,7 +18,6 @@ Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', `${this.data}`, {
     class: 'text-white list-item',
   })
-  this.dropdownClickItem(listItem, this.color)
   return listItem
 }
 
@@ -95,12 +95,19 @@ Dropdown.prototype.dropdownSearch = function (selector) {
   })
 }
 
-Dropdown.prototype.dropdownClickItem = function (item, color) {
-  item.addEventListener('click', () => {
-    const filter = new Filter(item.textContent)
-    const filterElement = filter.createFilterElement()
-  })
-}
+// Dropdown.prototype.dropdownClickItem = function () {
+//   const listItem = document.getElementsByClassName('list-item')
+//   for (let i = 0; i < listItem.length; i++) {
+//     listItem[i].addEventListener('click', () => {
+//       console.log(listItem[i].textContent)
+//     })
+//   }
+//   // item.addEventListener('click', () => {
+//   //   console.log(item.textContent)
+//   //   // const filter = new Filter(item.textContent)
+//   //   // const filterElement = filter.createFilterElement()
+//   // })
+// }
 
 Dropdown.prototype.expandDropdown = function (selector) {
   selector.classList.replace('col-md-2', 'col-md-6')
