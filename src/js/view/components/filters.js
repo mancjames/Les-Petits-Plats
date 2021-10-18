@@ -1,10 +1,12 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable func-names */
 import { createDom } from '../helpers'
-import { RecipeCard } from './recipeCard'
+// import { RecipeCard } from './recipeCard'
 
 const filterRow = document.getElementById('filterRow')
+export const option = []
 
 export function Filter(item) {
   this.item = item
@@ -39,6 +41,7 @@ Filter.prototype.createFilterElement = function () {
     )
   )
   filterRow.classList.remove('d-none')
+  option.push(this.item.toLowerCase())
   this.appendFilterElement(filterElement)
   this.closeFilterElement(filterElement)
   return filterElement
@@ -50,36 +53,16 @@ Filter.prototype.appendFilterElement = function (element) {
 
 Filter.prototype.closeFilterElement = function (selector) {
   const close = selector.getElementsByTagName('button')[0]
+  const value = this.item.toLowerCase()
   close.addEventListener('click', () => {
+    for (let i = 0; i < option.length; i++) {
+      if (option[i] === value) {
+        option.splice(i, 1)
+      }
+    }
     close.parentElement.parentElement.remove()
     if (!filterRow.hasChildNodes()) {
       filterRow.classList.add('d-none')
     }
   })
-}
-
-Filter.prototype.searchByFilter = function (data) {
-  const recipesSection = document.getElementById('recipesSection')
-  recipesSection.innerHTML = ''
-  if (filterRow.hasChildNodes()) {
-    const query = this.item.toLowerCase()
-    const results = data.filter(
-      (recipe) =>
-        recipe.name.toLowerCase().includes(query) ||
-        recipe.ustensils.some((ustensil) =>
-          ustensil.toLowerCase().includes(query)
-        ) ||
-        recipe.ingredients.some((ingredient) =>
-          ingredient.ingredient.toLowerCase().includes(query)
-        )
-    )
-    console.log(results)
-    results.forEach((result) =>
-      recipesSection.append(new RecipeCard(result).recipeCard())
-    )
-  } else {
-    data.forEach((recipe) => {
-      recipesSection.append(new RecipeCard(recipe).recipeCard())
-    })
-  }
 }
