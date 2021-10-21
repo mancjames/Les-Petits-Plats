@@ -17,6 +17,11 @@ export function Dropdown(data, type, color) {
 Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', `${this.data}`, {
     class: 'text-white list-item',
+    'data-search': 'searchOption',
+  })
+  listItem.addEventListener('click', () => {
+    const filterElement = new Filter(`${this.data}`)
+    filterElement.createFilterElement()
   })
   return listItem
 }
@@ -94,20 +99,6 @@ Dropdown.prototype.dropdownSearch = function (selector) {
     }
   })
 }
-
-// Dropdown.prototype.dropdownClickItem = function () {
-//   const listItem = document.getElementsByClassName('list-item')
-//   for (let i = 0; i < listItem.length; i++) {
-//     listItem[i].addEventListener('click', () => {
-//       console.log(listItem[i].textContent)
-//     })
-//   }
-//   // item.addEventListener('click', () => {
-//   //   console.log(item.textContent)
-//   //   // const filter = new Filter(item.textContent)
-//   //   // const filterElement = filter.createFilterElement()
-//   // })
-// }
 
 Dropdown.prototype.expandDropdown = function (selector) {
   selector.classList.replace('col-md-2', 'col-md-6')

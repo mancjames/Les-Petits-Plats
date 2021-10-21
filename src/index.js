@@ -8,10 +8,4 @@ import '@/styles/index.scss'
 // Import of bootstrap
 import 'bootstrap'
 
-// import {
-//   ingredientWithNoDuplicates,
-//   deviceWithNoDuplicates,
-//   utensilWithNoDuplicates,
-// } from './js/modal/optionsFromData'
-
 init()

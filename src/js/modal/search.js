@@ -14,12 +14,12 @@ Search.prototype.search = function (search) {
     for (let i = 0; i < search.length; i++) {
       const results = this.data.filter(
         (recipe) =>
-          recipe.appliance.toLowerCase().includes(search) ||
+          recipe.appliance.toLowerCase().includes(search[i]) ||
           recipe.ustensils.some((ustensil) =>
-            ustensil.toLowerCase().includes(search)
+            ustensil.toLowerCase().includes(search[i])
           ) ||
           recipe.ingredients.some((ingredient) =>
-            ingredient.ingredient.toLowerCase().includes(search)
+            ingredient.ingredient.toLowerCase().includes(search[i])
           )
       )
       results.forEach((result) =>

@@ -1,11 +1,9 @@
+/* eslint-disable func-names */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 /* eslint-disable max-len */
-/* eslint-disable func-names */
 import { createDom } from '../helpers'
-// import { RecipeCard } from './recipeCard'
 
-const filterRow = document.getElementById('filterRow')
 export const option = []
 
 export function Filter(item) {
@@ -13,6 +11,7 @@ export function Filter(item) {
 }
 
 Filter.prototype.createFilterElement = function () {
+  const filterRow = document.getElementById('filterRow')
   const filterElement = createDom(
     'div',
     {
@@ -30,12 +29,14 @@ Filter.prototype.createFilterElement = function () {
         'button',
         {
           type: 'button',
-          class: `btn close text-white rounded-end bg-primary float-right`,
+          'data-search': 'close',
+          class: `btn close text-white rounded-end bg-primary float-right filter-close`,
           'aria-label': 'close',
         },
         createDom('i', {
           'aria-hidden': 'true',
-          class: 'far fa-times-circle',
+          'data-search': 'close',
+          class: 'far fa-times-circle filter-close',
         })
       )
     )
@@ -48,10 +49,12 @@ Filter.prototype.createFilterElement = function () {
 }
 
 Filter.prototype.appendFilterElement = function (element) {
+  const filterRow = document.getElementById('filterRow')
   filterRow.append(element)
 }
 
 Filter.prototype.closeFilterElement = function (selector) {
+  const filterRow = document.getElementById('filterRow')
   const close = selector.getElementsByTagName('button')[0]
   const value = this.item.toLowerCase()
   close.addEventListener('click', () => {

@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable no-plusplus */
@@ -5,7 +7,7 @@
 import { RecipeCard } from './view/components/recipeCard'
 import { Dropdown } from './view/components/dropdown'
 // eslint-disable-next-line no-unused-vars
-import { Filter, option } from './view/components/filters'
+import { option } from './view/components/filters'
 // Modal imports
 import { recipes } from './modal/recipes'
 import { Search } from './modal/search'
@@ -20,11 +22,10 @@ const dropdownOption = ['ingredient', 'device', 'utensil']
 const dropdownColor = ['primary', 'secondary', 'tertiary']
 
 const recipeCard = new RecipeCard(recipes)
+const searchFilter = new Search(recipes)
 
 export const init = () => {
   recipeCard.createRecipesCard(recipes, recipesSection)
-  const searchFilter = new Search(recipes)
-  const listItem = document.getElementsByClassName('list-item')
   for (let i = 0; i < dropdownOption.length; i++) {
     const dropdown = new Dropdown(
       listWithNoDuplicates[i],
@@ -36,15 +37,10 @@ export const init = () => {
     dropdown.dropdownListener(dropdownElement)
     dropdownSection.append(dropdownElement)
   }
-  for (let j = 0; j < listItem.length; j++) {
-    listItem[j].addEventListener('click', () => {
-      const filterElement = new Filter(listItem[j].textContent)
-      const createFilter = filterElement.createFilterElement()
-      createFilter.addEventListener('click', () => {
-        searchFilter.search(option)
-      })
+  // event listener for searching using dropdown and when you close filter
+  document.body.addEventListener('click', (e) => {
+    if (e.target.dataset.search != 'undefined') {
       searchFilter.search(option)
-    })
-  }
-  // const searchFilter = new Search(option, recipes)
+    }
+  })
 }
