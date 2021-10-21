@@ -41,6 +41,7 @@ Dropdown.prototype.createDropdownElement = function () {
         }`,
         'aria-label': 'search',
         'data-bs-toggle': 'dropdown',
+        'aria-expanded': 'false',
       }),
       createDom(
         'button',
@@ -117,30 +118,35 @@ Dropdown.prototype.minimizeDropdown = function (selector) {
 Dropdown.prototype.dropdownListener = function (selector) {
   selector.addEventListener(
     'show.bs.dropdown',
-    () => {
+    (e) => {
       this.expandDropdown(selector)
+      // e.stopImmediatePropagation()
     },
     true
   )
   selector.addEventListener(
     'hide.bs.dropdown',
-    () => {
+    (e) => {
       this.minimizeDropdown(selector)
+      // e.stopImmediatePropagation()
     },
     true
   )
-  // selector.addEventListener(
-  //   'focusin',
-  //   () => {
-  //     this.expandDropdown(selector)
-  //   },
-  //   true
-  // )
-  // selector.addEventListener(
-  //   'focusout',
-  //   () => {
-  //     this.minimizeDropdown(selector)
-  //   },
-  //   true
-  // )
+}
+
+Dropdown.prototype.dropdownListenerInput = function (selector) {
+  const input = selector.getElementsByTagName('input')[0]
+  const ul = selector.getElementsByTagName('ul')[0]
+  const button = selector.getElementsByTagName('button')[0]
+  const className = selector.getElementsByClassName('dropdown-toggle-split')[0]
+
+  input.addEventListener('focusin', () => {
+    new bootstrap.Dropdown(input, {}).show()
+    // eslint-disable-next-line no-unused-expressions
+    // input.click()
+    // e.stopImmediatePropagation()
+    // selector.dispatchEvent(new Event('show.bs.dropdown'))
+    // input.ariaExpanded = true
+    // ul.classList.add('show')
+  })
 }

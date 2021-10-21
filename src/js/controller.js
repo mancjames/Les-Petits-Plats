@@ -35,6 +35,7 @@ export const init = () => {
     const dropdownElement = dropdown.createDropdownElement()
     dropdown.dropdownSearch(dropdownElement)
     dropdown.dropdownListener(dropdownElement)
+    dropdown.dropdownListenerInput(dropdownElement)
     dropdownSection.append(dropdownElement)
   }
   // event listener for searching using dropdown and when you close filter
