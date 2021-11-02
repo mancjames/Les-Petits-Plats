@@ -15,12 +15,12 @@ export function Dropdown(data, type, color) {
 }
 
 Dropdown.prototype.dropdownListItems = function () {
-  const listItem = createDom('li', `${this.data}`, {
+  const listItem = createDom('li', this.data, {
     class: 'text-white list-item',
     'data-search': 'searchOption',
   })
   listItem.addEventListener('click', () => {
-    const filterElement = new Filter(`${this.data}`)
+    const filterElement = new Filter(this.data)
     filterElement.createFilterElement()
   })
   return listItem
@@ -29,12 +29,15 @@ Dropdown.prototype.dropdownListItems = function () {
 Dropdown.prototype.createDropdownElement = function () {
   const element = createDom(
     'div',
-    { class: 'col-sm-12 col-md-2 mb-3 mb-lg-0 custom-animation' },
+    {
+      class: 'col-sm-12 col-md-2 mb-3 mb-lg-0 custom-animation custom-dropdown',
+    },
+    createDom('div', { class: 'custom-dropdown-overlay' }),
     createDom(
       'div',
       { class: 'btn-group rounded d-flex dropdownDiv' },
       createDom('input', {
-        class: `form-control rounded-start bg-${this.color} border-${this.color} py-4 px-2 text-white`,
+        class: `form-control rounded-start bg-${this.color} border-${this.color} py-4 px-2 text-white custom-dropdown-input`,
         type: 'search',
         placeholder: `${
           this.type.charAt(0).toUpperCase() + this.type.slice(1)
@@ -118,35 +121,50 @@ Dropdown.prototype.minimizeDropdown = function (selector) {
 Dropdown.prototype.dropdownListener = function (selector) {
   selector.addEventListener(
     'show.bs.dropdown',
-    (e) => {
+    () => {
       this.expandDropdown(selector)
-      // e.stopImmediatePropagation()
     },
     true
   )
   selector.addEventListener(
     'hide.bs.dropdown',
-    (e) => {
+    () => {
       this.minimizeDropdown(selector)
-      // e.stopImmediatePropagation()
     },
     true
   )
 }
 
 Dropdown.prototype.dropdownListenerInput = function (selector) {
+  // const dropdowns = document.querySelectorAll('.custom-dropdown')
+  // dropdowns.forEach((dropdown) => {
+  //   const dropdownOverlay = dropdown.querySelector('.custom-dropdown-overlay')
+  //   const dropdownInput = dropdown.querySelector('.custom-dropdown-input')
+  //   const bootstrapDropInput = new bootstrap.Dropdown(dropdownInput, {})
+  //   dropdownOverlay.addEventListener('click', () => {
+  //     if (dropdown.classList.contains('active')) {
+  //       dropdown.classList.remove('active')
+  //     }
+  //   })
+  //   // dropdownInput.addEventListener('click', () => {
+  //   //   dropdown.classList.toggle('active')
+  //   //   bootstrapDropInput.show()
+  //   // })
+  //   dropdownInput.addEventListener('focusin', () => {
+  //     dropdown.classList.toggle('active')
+  //     bootstrapDropInput.show()
+  //   })
+  // })
   const input = selector.getElementsByTagName('input')[0]
-  const ul = selector.getElementsByTagName('ul')[0]
   const button = selector.getElementsByTagName('button')[0]
-  const className = selector.getElementsByClassName('dropdown-toggle-split')[0]
-
+  const bootstrapDropInput = new bootstrap.Dropdown(input, {})
   input.addEventListener('focusin', () => {
-    new bootstrap.Dropdown(input, {}).show()
-    // eslint-disable-next-line no-unused-expressions
-    // input.click()
-    // e.stopImmediatePropagation()
-    // selector.dispatchEvent(new Event('show.bs.dropdown'))
-    // input.ariaExpanded = true
-    // ul.classList.add('show')
+    bootstrapDropInput.show()
   })
+  input.addEventListener('click', () => {
+    bootstrapDropInput.show()
+  })
+  // input.addEventListener('focusout', () => {
+  //   bootstrapDropInput.hide()
+  // })
 }

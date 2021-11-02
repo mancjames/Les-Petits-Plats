@@ -44,4 +44,26 @@ export const init = () => {
       searchFilter.search(option)
     }
   })
+  // const dropdowns = document.querySelectorAll('.custom-dropdown')
+  // dropdowns.forEach((dropdown) => {
+  //   const dropdownOverlay = dropdown.querySelector('.custom-dropdown-overlay')
+  //   const dropdownInput = dropdown.querySelector('.custom-dropdown-input')
+  //   // const bootstrapDropInput = new bootstrap.Dropdown(dropdownInput, {})
+
+  //   dropdownOverlay.addEventListener('focusin', () => {
+  //     if (dropdown.classList.contains('active')) {
+  //       dropdown.classList.remove('active')
+  //     }
+  //   })
+
+  //   // dropdownInput.addEventListener('click', () => {
+  //   //   dropdown.classList.toggle('active')
+  //   //   bootstrapDropInput.show()
+  //   // })
+
+  //   dropdownInput.addEventListener('focusin', () => {
+  //     dropdown.classList.toggle('active')
+  //     // bootstrapDropInput.show()
+  //   })
+  // })
 }
