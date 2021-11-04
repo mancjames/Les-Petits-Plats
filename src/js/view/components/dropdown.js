@@ -17,7 +17,7 @@ export function Dropdown(data, type, color) {
 Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', this.data, {
     class: 'text-white list-item',
-    'data-search': 'searchOption',
+    // 'data-search': 'searchOption',
   })
   listItem.addEventListener('click', () => {
     const filterElement = new Filter(this.data)

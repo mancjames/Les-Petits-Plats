@@ -7,10 +7,12 @@ export function SearchBar() {}
 SearchBar.prototype.searchListener = function () {
   const searchBar = document.getElementById('searchBar')
   const searchBarInput = document.getElementById('searchBarInput')
+  const searchBarButton = document.getElementById('searchBarButton')
   searchBar.addEventListener('submit', (e) => {
-    // eslint-disable-next-line no-console
+    e.preventDefault()
+  })
+  searchBarButton.addEventListener('click', () => {
     const filterElement = new Filter(searchBarInput.value)
     filterElement.createFilterElement()
-    e.preventDefault()
   })
 }

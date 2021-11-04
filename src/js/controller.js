@@ -59,7 +59,7 @@ export const init = () => {
   }
   const searchBar = new SearchBar()
   searchBar.searchListener()
-  // event listener for searching using dropdown and when you close filter
+  // event listener for searching when filter appears and close
   document.body.addEventListener('click', (e) => {
     if (e.target.dataset.search != 'undefined') {
       searchFilter.search(option)

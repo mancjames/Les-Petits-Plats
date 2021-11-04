@@ -23,6 +23,7 @@ Filter.prototype.createFilterElement = function () {
         class: 'rounded text-white align-middle text-nowrap btn-group',
       },
       createDom('span', `${this.item}`, {
+        'data-search': 'option',
         class: `rounded-start px-2 py-2 bg-primary`,
       }),
       createDom(
