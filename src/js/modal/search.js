@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-console */
 /* eslint-disable func-names */
@@ -11,21 +12,21 @@ Search.prototype.search = function (search) {
   const recipesSection = document.getElementById('recipesSection')
   recipesSection.innerHTML = ''
   if (search.length > 0) {
-    for (let i = 0; i < search.length; i++) {
-      const results = this.data.filter(
-        (recipe) =>
-          recipe.appliance.toLowerCase().includes(search[i]) ||
+    const results = this.data.filter((recipe) =>
+      search.every(
+        (option) =>
+          recipe.appliance.toLowerCase().includes(option) ||
           recipe.ustensils.some((ustensil) =>
-            ustensil.toLowerCase().includes(search[i])
+            ustensil.toLowerCase().includes(option)
           ) ||
           recipe.ingredients.some((ingredient) =>
-            ingredient.ingredient.toLowerCase().includes(search[i])
+            ingredient.ingredient.toLowerCase().includes(option)
           )
       )
-      results.forEach((result) =>
-        recipesSection.append(new RecipeCard(result).recipeCard())
-      )
-    }
+    )
+    results.forEach((result) =>
+      recipesSection.append(new RecipeCard(result).recipeCard())
+    )
   } else {
     this.data.forEach((recipe) => {
       recipesSection.append(new RecipeCard(recipe).recipeCard())
