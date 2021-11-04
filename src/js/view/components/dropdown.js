@@ -156,7 +156,7 @@ Dropdown.prototype.dropdownListenerInput = function (selector) {
   //   })
   // })
   const input = selector.getElementsByTagName('input')[0]
-  const button = selector.getElementsByTagName('button')[0]
+  // const button = selector.getElementsByTagName('button')[0]
   const bootstrapDropInput = new bootstrap.Dropdown(input, {})
   input.addEventListener('focusin', () => {
     bootstrapDropInput.show()

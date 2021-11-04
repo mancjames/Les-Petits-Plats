@@ -6,8 +6,8 @@
 // View imports
 import { RecipeCard } from './view/components/recipeCard'
 import { Dropdown } from './view/components/dropdown'
-// eslint-disable-next-line no-unused-vars
 import { option } from './view/components/filters'
+import { SearchBar } from './view/components/searchBar'
 // Modal imports
 import { recipes } from './modal/recipes'
 import { Search } from './modal/search'
@@ -57,6 +57,8 @@ export const init = () => {
     dropdown.dropdownListenerInput(dropdownElement)
     dropdownSection.append(dropdownElement)
   }
+  const searchBar = new SearchBar()
+  searchBar.searchListener()
   // event listener for searching using dropdown and when you close filter
   document.body.addEventListener('click', (e) => {
     if (e.target.dataset.search != 'undefined') {
