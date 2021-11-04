@@ -12,25 +12,44 @@ import { option } from './view/components/filters'
 import { recipes } from './modal/recipes'
 import { Search } from './modal/search'
 // eslint-disable-next-line max-len
-import { listWithNoDuplicates } from './modal/optionsFromData'
+import {
+  ingredientWithNoDuplicates,
+  deviceWithNoDuplicates,
+  utensilWithNoDuplicates,
+} from './modal/optionsFromData'
 // ID selectors
 const recipesSection = document.getElementById('recipesSection')
 const dropdownSection = document.getElementById('dropdownButtonSection')
 
 // Class selectors
-const dropdownOption = ['ingredient', 'device', 'utensil']
-const dropdownColor = ['primary', 'secondary', 'tertiary']
+const dropdownOptions = [
+  {
+    dropdownData: ingredientWithNoDuplicates,
+    dropdownType: 'ingredient',
+    dropdownColor: 'primary',
+  },
+  {
+    dropdownData: deviceWithNoDuplicates,
+    dropdownType: 'device',
+    dropdownColor: 'secondary',
+  },
+  {
+    dropdownData: utensilWithNoDuplicates,
+    dropdownType: 'utensil',
+    dropdownColor: 'tertiary',
+  },
+]
 
 const recipeCard = new RecipeCard(recipes)
 const searchFilter = new Search(recipes)
 
 export const init = () => {
   recipeCard.createRecipesCard(recipes, recipesSection)
-  for (let i = 0; i < dropdownOption.length; i++) {
+  for (let i = 0; i < dropdownOptions.length; i++) {
     const dropdown = new Dropdown(
-      listWithNoDuplicates[i],
-      dropdownOption[i],
-      dropdownColor[i]
+      dropdownOptions[i].dropdownData,
+      dropdownOptions[i].dropdownType,
+      dropdownOptions[i].dropdownColor
     )
     const dropdownElement = dropdown.createDropdownElement()
     dropdown.dropdownSearch(dropdownElement)
