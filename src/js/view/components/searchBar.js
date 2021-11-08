@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable func-names */
 /* eslint-disable no-unused-vars */
 import { Filter } from './filters'
@@ -10,9 +11,11 @@ SearchBar.prototype.searchListener = function () {
   const searchBarButton = document.getElementById('searchBarButton')
   searchBar.addEventListener('submit', (e) => {
     e.preventDefault()
-  })
-  searchBarButton.addEventListener('click', () => {
     const filterElement = new Filter(searchBarInput.value)
     filterElement.createFilterElement()
   })
+  //   searchBarButton.addEventListener('click', () => {
+  //     const filterElement = new Filter(searchBarInput.value)
+  //     filterElement.createFilterElement()
+  //   })
 }

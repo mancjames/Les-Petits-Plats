@@ -11,6 +11,7 @@ export function Filter(item) {
 }
 
 Filter.prototype.createFilterElement = function () {
+  // eslint-disable-next-line no-debugger
   const filterRow = document.getElementById('filterRow')
   const filterElement = createDom(
     'div',
