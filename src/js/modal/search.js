@@ -13,7 +13,6 @@ Search.prototype.search = function (search) {
   recipesSection.innerHTML = ''
   if (search.length > 0) {
     const results = []
-    console.log(results)
     for (let i = 0; i < this.data.length; i++) {
       const recipe = this.data[i]
       const searchResult = search.every(
