@@ -29,18 +29,6 @@ Search.prototype.search = function (search) {
         results.push(recipe)
       }
     }
-    //   const results = this.data.filter((recipe) =>
-    //     search.every(
-    //       (option) =>
-    //         recipe.appliance.toLowerCase().includes(option) ||
-    //         recipe.ustensils.some((ustensil) =>
-    //           ustensil.toLowerCase().includes(option)
-    //         ) ||
-    //         recipe.ingredients.some((ingredient) =>
-    //           ingredient.ingredient.toLowerCase().includes(option)
-    //         )
-    //     )
-    //   )
     results.forEach((result) =>
       recipesSection.append(new RecipeCard(result).recipeCard())
     )
