@@ -27,6 +27,10 @@ Search.prototype.search = function (search) {
     results.forEach((result) =>
       recipesSection.append(new RecipeCard(result).recipeCard())
     )
+    if (!recipesSection.hasChildNodes()) {
+      recipesSection.innerHTML =
+        '<p class="col-12 text-black">No recipes matches your criteria...you can search for "apple pie" , "fish" etc...</p>'
+    }
   } else {
     this.data.forEach((recipe) => {
       recipesSection.append(new RecipeCard(recipe).recipeCard())

@@ -14,7 +14,7 @@ SearchBar.prototype.searchListener = function () {
     e.preventDefault()
   })
   searchBarButton.addEventListener('click', () => {
-    if (searchBarInput.value.length > 3) {
+    if (searchBarInput.value.length >= 3) {
       const filterElement = new Filter(searchBarInput.value)
       filterElement.createFilterElement()
     } else if (searchBarInput.value.length < 3) {
