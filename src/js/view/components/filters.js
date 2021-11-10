@@ -12,6 +12,7 @@ export function Filter(item) {
 
 Filter.prototype.createFilterElement = function () {
   const filterRow = document.getElementById('filterRow')
+  const searchError = document.getElementById('searchError')
   const filterElement = createDom(
     'div',
     {
@@ -43,6 +44,7 @@ Filter.prototype.createFilterElement = function () {
     )
   )
   filterRow.classList.remove('d-none')
+  searchError.classList.add('d-none')
   option.push(this.item.toLowerCase())
   this.appendFilterElement(filterElement)
   this.closeFilterElement(filterElement)
