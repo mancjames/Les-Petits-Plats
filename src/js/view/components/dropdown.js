@@ -164,7 +164,4 @@ Dropdown.prototype.dropdownListenerInput = function (selector) {
   input.addEventListener('click', () => {
     bootstrapDropInput.show()
   })
-  // input.addEventListener('focusout', () => {
-  //   bootstrapDropInput.hide()
-  // })
 }
