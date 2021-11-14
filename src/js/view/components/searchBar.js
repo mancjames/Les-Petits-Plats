@@ -18,7 +18,6 @@ SearchBar.prototype.searchListener = function () {
       const filterElement = new Filter(searchBarInput.value)
       filterElement.createFilterElement()
     } else if (searchBarInput.value.length < 3) {
-      // eslint-disable-next-line no-console
       filterRow.classList.remove('d-none')
       searchError.classList.remove('d-none')
     }

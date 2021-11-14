@@ -61,7 +61,6 @@ Filter.prototype.closeFilterElement = function (selector) {
   const close = selector.getElementsByTagName('button')[0]
   const value = this.item.toLowerCase()
   close.addEventListener('click', () => {
-    // option = option.filter( opt =>  opt !== value );
     for (let i = 0; i < option.length; i++) {
       if (option[i] === value) {
         option.splice(i, 1)

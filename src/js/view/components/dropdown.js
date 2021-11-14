@@ -17,7 +17,6 @@ export function Dropdown(data, type, color) {
 Dropdown.prototype.dropdownListItems = function () {
   const listItem = createDom('li', this.data, {
     class: 'text-white list-item',
-    // 'data-search': 'searchOption',
   })
   listItem.addEventListener('click', () => {
     const filterElement = new Filter(this.data)
@@ -44,7 +43,6 @@ Dropdown.prototype.createDropdownElement = function () {
         }`,
         'aria-label': 'search',
         'data-bs-toggle': 'dropdown',
-        'aria-expanded': 'false',
       }),
       createDom(
         'button',
@@ -136,27 +134,7 @@ Dropdown.prototype.dropdownListener = function (selector) {
 }
 
 Dropdown.prototype.dropdownListenerInput = function (selector) {
-  // const dropdowns = document.querySelectorAll('.custom-dropdown')
-  // dropdowns.forEach((dropdown) => {
-  //   const dropdownOverlay = dropdown.querySelector('.custom-dropdown-overlay')
-  //   const dropdownInput = dropdown.querySelector('.custom-dropdown-input')
-  //   const bootstrapDropInput = new bootstrap.Dropdown(dropdownInput, {})
-  //   dropdownOverlay.addEventListener('click', () => {
-  //     if (dropdown.classList.contains('active')) {
-  //       dropdown.classList.remove('active')
-  //     }
-  //   })
-  //   // dropdownInput.addEventListener('click', () => {
-  //   //   dropdown.classList.toggle('active')
-  //   //   bootstrapDropInput.show()
-  //   // })
-  //   dropdownInput.addEventListener('focusin', () => {
-  //     dropdown.classList.toggle('active')
-  //     bootstrapDropInput.show()
-  //   })
-  // })
   const input = selector.getElementsByTagName('input')[0]
-  // const button = selector.getElementsByTagName('button')[0]
   const bootstrapDropInput = new bootstrap.Dropdown(input, {})
   input.addEventListener('focusin', () => {
     bootstrapDropInput.show()
